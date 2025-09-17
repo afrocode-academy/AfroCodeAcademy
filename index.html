@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Afrocode Academy</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a202c;
+      --accent: #00c9a7;
+      --nav-bg: #23272f;
+      --section-bg: #f6f7fb;
+      --text: #222;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      background: var(--section-bg);
+      color: var(--text);
+    }
+    header {
+      background: var(--nav-bg);
+      color: var(--white);
+      padding: 0.5rem 0;
+      box-shadow: 0 2px 8px #0001;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .navbar-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .navbar-links a:hover {
+      color: var(--accent);
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 2rem;
+    }
+    section h2 {
+      color: var(--accent);
+      margin-top: 0;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    /* Mentors, Collaborators, Fellows Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--section-bg);
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 1px 4px #0001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      background: var(--white);
+    }
+    .card .name {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .card .bio {
+      font-size: 0.95rem;
+      color: #444;
+      text-align: center;
+    }
+    /* Courses list */
+    .courses-list {
+      list-style: none;
+      padding: 0;
+    }
+    .courses-list li {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .courses-list li::before {
+      content: "📚";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    /* News/Blogs */
+    .news-list {
+      list-style: none;
+      padding: 0;
+    }
+    .news-list li {
+      margin-bottom: 1rem;
+    }
+    /* Contacts */
+    .contact-info {
+      margin-bottom: 1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .contact-form button {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 0.7rem 2rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .contact-form button:hover {
+      background: #009e82;
+    }
+    @media (max-width: 600px) {
+      .navbar { flex-direction: column; gap: 1rem; }
+      main { padding: 0; }
+      section { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="navbar-brand">Afrocode Academy</a>
+      <div class="navbar-links">
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#mentors">Mentors</a>
+        <a href="#news">News/Blogs</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#collaborators">Collaborators</a>
+        <a href="#fellows">Fellows</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="home">
+      <h2>Welcome to Afrocode Academy</h2>
+      <p>
+        Empowering African tech talent through quality education, mentorship, and collaboration.<br>
+        <strong>Learn. Grow. Innovate.</strong>
+      </p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        Afrocode Academy is dedicated to nurturing future tech leaders in Africa by providing world-class courses, hands-on mentorship, and a vibrant community. Our mission is to bridge the gap in tech education and foster innovation across the continent.
+      </p>
+    </section>
+
+    <section id="courses">
+      <h2>Courses</h2>
+      <ul class="courses-list">
+        <li>
+          <a href="<!-- course link here -->" target="_blank">Course Title 1</a>
+        </li>
+        <li>
+          <a href="<!-- course link here -->" target="_blank">Course Title 2</a>
+        </li>
+        <li>
+          <a href="<!-- course link here -->" target="_blank">Course Title 3</a>
+        </li>
+        <li>
+          <a href="<!-- course link here -->" target="_blank">Course Title 4</a>
+        </li>
+        <li>
+          <a href="<!-- course link here -->" target="_blank">Course Title 5</a>
+        </li>
+      </ul>
+      <p style="font-size:0.95rem;color:gray;">
+        (Replace with actual course titles and GitHub links.)
+      </p>
+    </section>
+
+    <section id="mentors">
+      <h2>Mentors</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="<!-- mentor image url -->" alt="Mentor Name"/>
+          <div class="name">Mentor Name 1</div>
+          <div class="bio">Short bio or skills for Mentor 1.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- mentor image url -->" alt="Mentor Name"/>
+          <div class="name">Mentor Name 2</div>
+          <div class="bio">Short bio or skills for Mentor 2.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- mentor image url -->" alt="Mentor Name"/>
+          <div class="name">Mentor Name 3</div>
+          <div class="bio">Short bio or skills for Mentor 3.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- mentor image url -->" alt="Mentor Name"/>
+          <div class="name">Mentor Name 4</div>
+          <div class="bio">Short bio or skills for Mentor 4.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- mentor image url -->" alt="Mentor Name"/>
+          <div class="name">Mentor Name 5</div>
+          <div class="bio">Short bio or skills for Mentor 5.</div>
+        </div>
+      </div>
+      <p style="font-size:0.95rem;color:gray;">
+        (Replace with actual mentor names, images, and bios.)
+      </p>
+    </section>
+
+    <section id="news">
+      <h2>News / Blogs</h2>
+      <ul class="news-list">
+        <li>
+          <strong>Blog Title 1</strong> <br>
+          <span style="color:gray;">Date</span> <br>
+          Short summary or intro text. <a href="<!-- blog link -->" target="_blank">Read more</a>
+        </li>
+        <li>
+          <strong>Blog Title 2</strong> <br>
+          <span style="color:gray;">Date</span> <br>
+          Short summary or intro text. <a href="<!-- blog link -->" target="_blank">Read more</a>
+        </li>
+      </ul>
+      <p style="font-size:0.95rem;color:gray;">
+        (Add your news, event updates, or blog posts here.)
+      </p>
+    </section>
+
+    <section id="contacts">
+      <h2>Contacts</h2>
+      <div class="contact-info">
+        <div>Email: <a href="mailto:your@email.com">your@email.com</a></div>
+        <div>Twitter: <a href="https://twitter.com/yourtwitter" target="_blank">@yourtwitter</a></div>
+        <div>Location: City, Country</div>
+      </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required/>
+        <input type="email" placeholder="Your Email" required/>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p style="font-size:0.95rem;color:gray;">
+        (Edit contact info as needed.)
+      </p>
+    </section>
+
+    <section id="collaborators">
+      <h2>Collaborators</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
+          <div class="name">Collaborator Name 1</div>
+          <div class="bio">Short description or partnership detail.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
+          <div class="name">Collaborator Name 2</div>
+          <div class="bio">Short description or partnership detail.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
+          <div class="name">Collaborator Name 3</div>
+          <div class="bio">Short description or partnership detail.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
+          <div class="name">Collaborator Name 4</div>
+          <div class="bio">Short description or partnership detail.</div>
+        </div>
+        <div class="card">
+          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
+          <div class="name">Collaborator Name 5</div>
+          <div class="bio">Short description or partnership detail.</div>
+        </div>
+      </div>
+      <p style="font-size:0.95rem;color:gray;">
+        (Replace with actual collaborator names, logos, and details.)
+      </p>
+    </section>
+
+    <section id="fellows">
+      <h2>Fellows</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="name">Fellow Name 1</div>
+          <div class="bio">Short bio for Fellow 1.</div>
+        </div>
+        <div class="card">
+          <div class="name">Fellow Name 2</div>
+          <div class="bio">Short bio for Fellow 2.</div>
+        </div>
+        <div class="card">
+          <div class="name">Fellow Name 3</div>
+          <div class="bio">Short bio for Fellow 3.</div>
+        </div>
+        <div class="card">
+          <div class="name">Fellow Name 4</div>
+          <div class="bio">Short bio for Fellow 4.</div>
+        </div>
+        <div class="card">
+          <div class="name">Fellow Name 5</div>
+          <div class="bio">Short bio for Fellow 5.</div>
+        </div>
+      </div>
+      <p style="font-size:0.95rem;color:gray;">
+        (Replace with actual fellow names and bios.)
+      </p>
+    </section>
+  </main>
+  <footer style="text-align:center; background:var(--nav-bg); color:var(--white); padding:1rem 0; margin-top:2rem;">
+    &copy; 2025 Afrocode Academy. All rights reserved.
+  </footer>
+  <script>
+    // Simple contact form handler (does nothing, add your own logic)
+    document.querySelector(".contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Thank you for contacting Afrocode Academy!");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
