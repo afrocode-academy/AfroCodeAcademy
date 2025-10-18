@@ -1,437 +1,1881 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AfroCode Academy</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #1a202c;
-      --accent: #00c9a7;
-      --secondary: #4f46e5;
-      --nav-bg: #23272f;
-      --section-bg: #f9fafc;
-      --text: #222;
-      --white: #fff;
-      --gradient: linear-gradient(135deg, var(--accent), var(--secondary));
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfroCode Academy - Empowering African Tech Talent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --dark-bg: #0f0f23;
+            --dark-secondary: #1a1a2e;
+            --text-light: #e2e8f0;
+            --text-dark: #2d3748;
+            --success-color: #48bb78;
+            --warning-color: #ed8936;
+        }
 
-    /* Dark Mode Variables */
-    body.dark {
-      --nav-bg: #111;
-      --section-bg: #1a1a1a;
-      --text: #e5e5e5;
-      --white: #222;
-      --gradient: linear-gradient(135deg, var(--secondary), var(--accent));
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background: var(--section-bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    /* Navbar */
-    header {
-      background: var(--nav-bg);
-      color: var(--white);
-      padding: 0.8rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    .navbar-brand {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .navbar-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .navbar-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .navbar-links a:hover {
-      color: var(--accent);
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--white);
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* Dark Mode Button */
-    .dark-toggle {
-      background: none;
-      border: 2px solid var(--accent);
-      color: var(--accent);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .dark-toggle:hover {
-      background: var(--accent);
-      color: var(--white);
-    }
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
 
-    /* Hero */
-    .hero {
-      background: var(--gradient);
-      color: var(--white);
-      text-align: center;
-      padding: 5rem 1rem;
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .btn {
-      background: var(--white);
-      color: var(--secondary);
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: var(--accent);
-      color: var(--white);
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
 
-    main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    section {
-      margin-bottom: 3rem;
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 3px 12px #0002;
-      padding: 2rem;
-      transition: transform 0.3s, background 0.3s, color 0.3s;
-    }
-    section:hover { transform: translateY(-3px); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    section h2 {
-      color: var(--secondary);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
 
-    /* Cards */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--section-bg);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 18px #0003;
-    }
-    .card img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    .card .name { font-weight: 600; margin-bottom: 0.5rem; }
-    .card .bio { font-size: 0.95rem; color: #777; }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
 
-    /* Lists */
-    .courses-list, .news-list { list-style: none; padding: 0; }
-    .courses-list li, .news-list li { margin-bottom: 1rem; }
-    .courses-list a { color: var(--secondary); font-weight: 500; text-decoration: none; }
-    .courses-list a:hover { text-decoration: underline; }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: width 0.3s ease;
+        }
 
-    /* Contact */
-    .contact-info div { margin-bottom: 0.5rem; }
-    .contact-form input, .contact-form textarea {
-      width: 100%; padding: 0.8rem; margin-bottom: 1rem;
-      border: 1px solid #ccc; border-radius: 6px;
-      font-family: inherit; font-size: 1rem;
-    }
-    .contact-form button {
-      background: var(--gradient);
-      color: var(--white);
-      border: none;
-      padding: 0.8rem 2rem;
-      font-size: 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .contact-form button:hover { opacity: 0.9; }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      background: var(--nav-bg);
-      color: var(--white);
-      padding: 1.5rem 0;
-      margin-top: 2rem;
-    }
-    footer a { color: var(--accent); margin: 0 0.5rem; text-decoration: none; }
+        .mobile-menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .navbar-links {
-        position: absolute;
-        top: 60px; right: 0;
-        background: var(--nav-bg);
-        flex-direction: column;
-        width: 200px;
-        padding: 1rem;
-        display: none;
-      }
-      .navbar-links.active { display: flex; }
-      .menu-toggle { display: block; }
-    }
-  </style>
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-secondary) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(102,126,234,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            color: var(--text-light);
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 13px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .about-text h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card h4 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        /* Mentors Section */
+        .mentors {
+            background: white;
+        }
+
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mentor-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .mentor-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+        }
+
+        .mentor-info {
+            padding: 2rem;
+        }
+
+        .mentor-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .mentor-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .mentor-bio {
+            color: #718096;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .mentor-expertise {
+            margin-bottom: 1rem;
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Courses Section */
+        .courses {
+            background: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        .courses .section-title h2 {
+            color: var(--text-light);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .course-card {
+            background: var(--dark-secondary);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .course-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .course-card p {
+            color: #a0aec0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .course-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .course-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #f8fafc;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Fellows Section */
+        .fellows {
+            background: white;
+        }
+
+        .fellows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .fellow-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .fellow-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .fellow-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1rem;
+        }
+
+        .fellow-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .fellow-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* News/Blog Section */
+        .news {
+            background: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        .news .section-title h2 {
+            color: var(--text-light);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .news-card {
+            background: var(--dark-secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .news-content {
+            padding: 2rem;
+        }
+
+        .news-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .news-content p {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        /* Collaborators Section */
+        .collaborators {
+            background: #f8fafc;
+        }
+
+        .collaborators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .collaborator-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .collaborator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .collaborator-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            width: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 50px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--dark-secondary);
+            color: #718096;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark-bg);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="#home" class="navbar-brand">AfroCode Academy</a>
-      <div class="menu-toggle">☰</div>
-      <div class="navbar-links">
-        <a href="#about">About</a>
-        <a href="#courses">Courses</a>
-        <a href="#mentors">Mentors</a>
-        <a href="#news">News/Blogs</a>
-        <a href="#contacts">Contacts</a>
-        <a href="#collaborators">Collaborators</a>
-        <a href="#fellows">Fellows</a>
-        <button class="dark-toggle">🌙 Dark</button>
-      </div>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-code"></i> AfroCode Academy
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#mentors">Mentors</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#fellows">Fellows</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#collaborators">Partners</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="#contact" class="cta-button">
+                <i class="fas fa-envelope"></i> Get Started
+            </a>
+        </nav>
+    </header>
 
-  <section class="hero" id="home">
-    <h1>Welcome to AfroCode Academy</h1>
-    <p>Empowering African tech talent through education, mentorship, and collaboration.<br>
-    <strong>Learn. Grow. Innovate.</strong></p>
-    <a href="#courses" class="btn">Explore Courses</a>
-  </section>
-
-  <main>
-  <section id="about">
-      <h2>About Us</h2>
-      <p>
-        Afrocode Academy is dedicated to nurturing future tech leaders in Africa by providing world-class courses, hands-on mentorship, and a vibrant community. Our mission is to bridge the gap in tech education and foster innovation across the continent.
-      </p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering African Tech Talent</h1>
+                <p>Transform your future with cutting-edge coding education designed for the African tech ecosystem. Learn from industry experts, work on real projects, and join a community of innovators building the digital future of Africa.</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn-primary">
+                        <i class="fas fa-rocket"></i> Explore Courses
+                    </a>
+                    <a href="#about" class="btn-secondary">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="courses">
-      <h2>Courses</h2>
-      <ul class="courses-list">
-        <li>
-          <a href="<!-- course link here -->" target="_blank">Introduction to Data Science</a>
-        </li>
-        <li>
-          <a href="<!-- course link here -->" target="_blank">Data Science and Machine Learning</a>
-        </li>
-        <li>
-          <a href="<!-- course link here -->" target="_blank">Introduction to Web Development</a>
-        </li>
-        <li>
-          <a href="<!-- course link here -->" target="_blank">Graphic Design</a>
-        </li>
-        <li>
-          <a href="<!-- course link here -->" target="_blank">Introduction to Cyber Security</a>
-        </li>
-      </ul>
-      <p style="font-size:0.95rem;color:gray;">
-      </p>
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About AfroCode Academy</h2>
+                <p>We're on a mission to build the next generation of African tech leaders through comprehensive, practical education that bridges the gap between learning and real-world application.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>AfroCode Academy is dedicated to democratizing access to world-class technology education across Africa. We believe that talent is equally distributed, but opportunity is not. Through our comprehensive programs, mentorship, and community support, we're creating pathways for African developers to thrive in the global tech ecosystem.</p>
+                    
+                    <h3>What Makes Us Different</h3>
+                    <p>Our curriculum is designed by industry professionals and tailored specifically for the African context. We focus on practical skills, real-world projects, and building solutions that address local challenges while maintaining global standards.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h4>2,500+</h4>
+                        <p>Students Graduated</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>89%</h4>
+                        <p>Job Placement Rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>15+</h4>
+                        <p>African Countries</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>50+</h4>
+                        <p>Industry Partners</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="mentors">
-      <h2>Meet Our Mentors</h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="w9gj59.jpg" alt="Abdulrazaq Isah Dikko"/>
-          <div class="name">Abdulrazaq Isah Dikko</div>
-          <div class="bio">ML Engineer, Data Scientist .</div>
+    <!-- Mentors Section -->
+    <section class="section mentors" id="mentors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Expert Mentors</h2>
+                <p>Learn from seasoned professionals who have built successful careers at leading tech companies and startups across Africa and globally.</p>
+            </div>
+            <div class="mentors-grid">
+                <div class="mentor-card loading">
+                    <div class="mentor-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Sarah Okafor</h3>
+                        <div class="mentor-role">Senior Software Engineer @ Google</div>
+                        <div class="mentor-bio">10+ years experience in full-stack development and cloud architecture. Former lead engineer at Flutterwave, passionate about mentoring the next generation of African developers.</div>
+                        <div class="mentor-expertise">
+                            <strong>Expertise:</strong>
+                            <div class="expertise-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">AWS</span>
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentor-card loading">
+                    <div class="mentor-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Michael Adebayo</h3>
+                        <div class="mentor-role">Tech Lead @ Microsoft</div>
+                        <div class="mentor-bio">Mobile development specialist with extensive experience in iOS and Android platforms. Founded two successful startups and mentored over 200 developers.</div>
+                        <div class="mentor-expertise">
+                            <strong>Expertise:</strong>
+                            <div class="expertise-tags">
+                                <span class="tag">Swift</span>
+                                <span class="tag">Kotlin</span>
+                                <span class="tag">React Native</span>
+                                <span class="tag">Flutter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentor-card loading">
+                    <div class="mentor-image">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Amina Hassan</h3>
+                        <div class="mentor-role">Data Science Lead @ Paystack</div>
+                        <div class="mentor-bio">PhD in Computer Science, specializing in machine learning and AI. Published researcher with focus on applying AI to solve African challenges in fintech and healthcare.</div>
+                        <div class="mentor-expertise">
+                            <strong>Expertise:</strong>
+                            <div class="expertise-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">ML Ops</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentor-card loading">
+                    <div class="mentor-image">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>James Mwangi</h3>
+                        <div class="mentor-role">Cybersecurity Expert @ Safaricom</div>
+                        <div class="mentor-bio">Certified ethical hacker and security consultant with 8+ years protecting digital infrastructure across East Africa. Expert in blockchain and cryptocurrency security.</div>
+                        <div class="mentor-expertise">
+                            <strong>Expertise:</strong>
+                            <div class="expertise-tags">
+                                <span class="tag">Cybersecurity</span>
+                                <span class="tag">Blockchain</span>
+                                <span class="tag">Penetration Testing</span>
+                                <span class="tag">DevSecOps</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentor-card loading">
+                    <div class="mentor-image">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Fatima Al-Rashid</h3>
+                        <div class="mentor-role">DevOps Engineer @ Amazon</div>
+                        <div class="mentor-bio">Cloud infrastructure specialist with expertise in scalable system design. Built and deployed systems serving millions of users across Africa and the Middle East.</div>
+                        <div class="mentor-expertise">
+                            <strong>Expertise:</strong>
+                            <div class="expertise-tags">
+                                <span class="tag">Docker</span>
+                                <span class="tag">Kubernetes</span>
+                                <span class="tag">Terraform</span>
+                                <span class="tag">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentor-card loading">
+                    <div class="mentor-image">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Kofi Asante</h3>
+                        <div class="mentor-role">Blockchain Developer @ Binance</div>
+                        <div class="mentor-bio">Pioneer in African blockchain development, created multiple DeFi protocols. Smart contract security auditor and cryptocurrency researcher with focus on African markets.</div>
+                        <div class="mentor-expertise">
+                            <strong>Expertise:</strong>
+                            <div class="expertise-tags">
+                                <span class="tag">Solidity</span>
+                                <span class="tag">Web3</span>
+                                <span class="tag">DeFi</span>
+                                <span class="tag">Smart Contracts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <img src="1758147827167.jpg" alt="ukashatu"/>
-          <div class="name">Ukashatu Idris</div>
-          <div class="bio">Full Stack Web developer</div>
-        </div>
-        <div class="card">
-          <img src="1722593456066~2.jpg" alt="Khalid"/>
-          <div class="name">Khalid Isah</div>
-          <div class="bio">Data Analyst </div>
-        </div>
-        <div class="card">
-          <img src="1000164794.jpg" alt="Abdurrahman"/>
-          <div class="name">Abdurrahman Isah</div>
-          <div class="bio">Graphic Designer</div>
-        </div>
-      </div>
-      <p style="font-size:0.95rem;color:gray;">
-      </p>
     </section>
 
-    <section id="news">
-      <h2>News / Blogs</h2>
-      <ul class="news-list">
-        <li>
-          <strong>Blog Title 1</strong> <br>
-          <span style="color:gray;">Date</span> <br>
-          Short summary or intro text. <a href="<!-- blog link -->" target="_blank">Read more</a>
-        </li>
-        <li>
-          <strong>Blog Title 2</strong> <br>
-          <span style="color:gray;">Date</span> <br>
-          Short summary or intro text. <a href="<!-- blog link -->" target="_blank">Read more</a>
-        </li>
-      </ul>
-      <p style="font-size:0.95rem;color:gray;">
-      </p>
+    <!-- Courses Section -->
+    <section class="section courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Courses</h2>
+                <p>Cutting-edge curriculum designed to prepare you for the most in-demand roles in the tech industry.</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card loading">
+                    <div class="course-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Full-Stack Web Development</h3>
+                    <p>Master modern web development with React, Node.js, databases, and cloud deployment. Build scalable web applications from frontend to backend.</p>
+                    <a href="#" class="course-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="course-card loading">
+                    <div class="course-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Create native iOS and Android apps using Swift, Kotlin, React Native, and Flutter. Deploy to app stores and reach millions of users.</p>
+                    <a href="#" class="course-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="course-card loading">
+                    <div class="course-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Data Science & AI</h3>
+                    <p>Dive into machine learning, data analysis, and artificial intelligence using Python, TensorFlow, and modern ML frameworks.</p>
+                    <a href="#" class="course-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="course-card loading">
+                    <div class="course-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Learn ethical hacking, network security, and digital forensics. Protect organizations from cyber threats and build secure systems.</p>
+                    <a href="#" class="course-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="course-card loading">
+                    <div class="course-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Computing & DevOps</h3>
+                    <p>Master AWS, Azure, Docker, Kubernetes, and CI/CD pipelines. Build and deploy scalable cloud infrastructure.</p>
+                    <a href="#" class="course-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="course-card loading">
+                    <div class="course-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Blockchain Development</h3>
+                    <p>Create smart contracts, DApps, and blockchain solutions using Solidity, Web3, and various blockchain platforms.</p>
+                    <a href="#" class="course-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contacts">
-      <h2>Contacts</h2>
-      <div class="contact-info">
-        <div>Email: <a href="mailto:afrocode@zohomail.com">afrocode@zohomail.com</a></div>
-        <div>Twitter: <a href="https://twitter.com/yourtwitter" target="_blank">@afrocodeacademy</a></div>
-        <div>Location: Kaduna, Nigeria.</div>
-      </div>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required/>
-        <input type="email" placeholder="Your Email" required/>
-        <textarea rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <p style="font-size:0.95rem;color:gray;">
-      </p>
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Student Projects</h2>
+                <p>Real-world applications built by our students solving African challenges with technology.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card loading">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AgriConnect</h3>
+                        <p>A mobile platform connecting smallholder farmers with buyers and providing real-time market prices across West Africa.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card loading">
+                    <div class="project-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>EduChain</h3>
+                        <p>Blockchain-based certificate verification system helping combat fake academic credentials across African universities.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Solidity</span>
+                            <span class="tech-tag">Web3</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">IPFS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card loading">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>HealthTracker AI</h3>
+                        <p>AI-powered health monitoring app that provides medical insights and connects patients with healthcare providers in rural areas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card loading">
+                    <div class="project-image">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>MicroLend</h3>
+                        <p>Peer-to-peer lending platform using smart contracts to provide microfinance services to underbanked communities.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Ethereum</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="collaborators">
-      <h2>Collaborators</h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
-          <div class="name">Collaborator Name 1</div>
-          <div class="bio">Short description or partnership detail.</div>
+    <!-- Fellows Section -->
+    <section class="section fellows" id="fellows">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Alumni Fellows</h2>
+                <p>Success stories from our graduates who are now leading innovation across Africa and beyond.</p>
+            </div>
+            <div class="fellows-grid">
+                <div class="fellow-card loading">
+                    <div class="fellow-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Adaora Okwu</h3>
+                    <div class="fellow-role">Senior Developer @ Flutterwave</div>
+                    <p>"AfroCode Academy gave me the skills and confidence to land my dream job at one of Africa's leading fintech companies."</p>
+                </div>
+                
+                <div class="fellow-card loading">
+                    <div class="fellow-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Omar Said</h3>
+                    <div class="fellow-role">Founder @ TechSolutions Kenya</div>
+                    <p>"The entrepreneurial mindset I developed here helped me build a successful tech startup serving East African businesses."</p>
+                </div>
+                
+                <div class="fellow-card loading">
+                    <div class="fellow-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Thandiwe Moyo</h3>
+                    <div class="fellow-role">Data Scientist @ Standard Bank</div>
+                    <p>"The practical approach to data science here prepared me to work on real-world financial modeling and risk assessment."</p>
+                </div>
+                
+                <div class="fellow-card loading">
+                    <div class="fellow-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Hassan Diallo</h3>
+                    <div class="fellow-role">Mobile Developer @ Jumia</div>
+                    <p>"Learning mobile development at AfroCode Academy opened doors to opportunities I never thought possible."</p>
+                </div>
+                
+                <div class="fellow-card loading">
+                    <div class="fellow-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Grace Mutua</h3>
+                    <div class="fellow-role">Security Engineer @ Safaricom</div>
+                    <p>"The cybersecurity program here is world-class. I now help protect millions of mobile money transactions daily."</p>
+                </div>
+                
+                <div class="fellow-card loading">
+                    <div class="fellow-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Ahmed Zakaria</h3>
+                    <div class="fellow-role">Blockchain Lead @ BitPesa</div>
+                    <p>"From learning my first smart contract to leading blockchain development - AfroCode Academy made it possible."</p>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
-          <div class="name">Collaborator Name 2</div>
-          <div class="bio">Short description or partnership detail.</div>
-        </div>
-        <div class="card">
-          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
-          <div class="name">Collaborator Name 3</div>
-          <div class="bio">Short description or partnership detail.</div>
-        </div>
-        <div class="card">
-          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
-          <div class="name">Collaborator Name 4</div>
-          <div class="bio">Short description or partnership detail.</div>
-        </div>
-        <div class="card">
-          <img src="<!-- collaborator logo url -->" alt="Collaborator Name"/>
-          <div class="name">Collaborator Name 5</div>
-          <div class="bio">Short description or partnership detail.</div>
-        </div>
-      </div>
-      <p style="font-size:0.95rem;color:gray;">
-      </p>
     </section>
 
-    <section id="fellows">
-      <h2>Fellows</h2>
-      <div class="card-grid">
-        <div class="card">
-          <div class="name">Fellow Name 1</div>
-          <div class="bio">Short bio for Fellow 1.</div>
+    <!-- News/Blog Section -->
+    <section class="section news" id="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News & Insights</h2>
+                <p>Stay updated with the latest trends in African tech and insights from our community.</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card loading">
+                    <div class="news-image">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">September 15, 2024</div>
+                        <h3>AfroCode Academy Partners with Google to Launch AI Initiative</h3>
+                        <p>We're excited to announce our partnership with Google to bring advanced AI and machine learning education to African developers through specialized workshops and certification programs.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card loading">
+                    <div class="news-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">September 10, 2024</div>
+                        <h3>Our Students Win Continental Hackathon</h3>
+                        <p>Team AfroCode took first place at the African Innovation Hackathon with their blockchain-based voting system, winning $50,000 and mentorship opportunities with leading tech companies.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card loading">
+                    <div class="news-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">September 5, 2024</div>
+                        <h3>New Campus Opening in Lagos</h3>
+                        <p>We're expanding our physical presence with a state-of-the-art campus in Lagos, Nigeria, featuring modern labs, collaboration spaces, and direct industry connections.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card loading">
+                    <div class="news-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">August 30, 2024</div>
+                        <h3>1000+ Graduates Milestone Reached</h3>
+                        <p>We celebrate reaching over 1000 successful graduates who are now working at leading tech companies across Africa and globally, with an average salary increase of 300%.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <div class="name">Fellow Name 2</div>
-          <div class="bio">Short bio for Fellow 2.</div>
-        </div>
-        <div class="card">
-          <div class="name">Fellow Name 3</div>
-          <div class="bio">Short bio for Fellow 3.</div>
-        </div>
-        <div class="card">
-          <div class="name">Fellow Name 4</div>
-          <div class="bio">Short bio for Fellow 4.</div>
-        </div>
-        <div class="card">
-          <div class="name">Fellow Name 5</div>
-          <div class="bio">Short bio for Fellow 5.</div>
-        </div>
-      </div>
-      <p style="font-size:0.95rem;color:gray;">
-      </p>
     </section>
-  </main>
 
+    <!-- Collaborators Section -->
+    <section class="section collaborators" id="collaborators">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners & Collaborators</h2>
+                <p>Working together with leading organizations to create opportunities for African tech talent.</p>
+            </div>
+            <div class="collaborators-grid">
+                <div class="collaborator-card loading">
+                    <div class="collaborator-logo">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google</h3>
+                    <p>AI Education Partnership</p>
+                </div>
+                
+                <div class="collaborator-card loading">
+                    <div class="collaborator-logo">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3>Microsoft</h3>
+                    <p>Azure Cloud Credits Program</p>
+                </div>
+                
+                <div class="collaborator-card loading">
+                    <div class="collaborator-logo">
+                        <i class="fab fa-amazon"></i>
+                    </div>
+                    <h3>Amazon</h3>
+                    <p>AWS Training Partner</p>
+                </div>
+                
+                <div class="collaborator-card loading">
+                    <div class="collaborator-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>University of Lagos</h3>
+                    <p>Academic Accreditation</p>
+                </div>
+                
+                <div class="collaborator-card loading">
+                    <div class="collaborator-logo">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Flutterwave</h3>
+                    <p>Industry Mentorship</p>
+                </div>
+                
+                <div class="collaborator-card loading">
+                    <div class="collaborator-logo">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Paystack</h3>
+                    <p>Internship Program</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 AfroCode Academy. All rights reserved.</p>
-    <p>
-      <a href="#">Twitter</a> | 
-      <a href="#">LinkedIn</a> | 
-      <a href="#">YouTube</a>
-    </p>
-  </footer>
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your journey with us? Reach out and let's discuss how we can help you achieve your tech career goals.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course Interest</label>
+                            <select id="course" name="course" style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem;">
+                                <option value="">Select a course</option>
+                                <option value="fullstack">Full-Stack Web Development</option>
+                                <option value="mobile">Mobile App Development</option>
+                                <option value="datascience">Data Science & AI</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="cloud">Cloud Computing & DevOps</option>
+                                <option value="blockchain">Blockchain Development</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your background and career goals..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Lagos Campus</strong><br>
+                            1 Admiralty Way, Lekki Phase 1<br>
+                            Lagos, Nigeria
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +234 800 AFROCODE<br>
+                            +234 701 234 5678
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            hello@afrocodeacademy.com<br>
+                            admissions@afrocodeacademy.com
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Office Hours</strong><br>
+                            Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 3:00 PM
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/afrocode-academy" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://facebook.com/afrocodeacademy" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/2347012345678" class="social-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://github.com/afrocode-academy" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/afrocodeacademy" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="mailto:hello@afrocodeacademy.com" class="social-link" target="_blank">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://discord.gg/afrocode" class="social-link" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.navbar-links');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-code"></i> AfroCode Academy</h3>
+                    <p>Empowering African talent through world-class coding education. Join thousands of graduates who are now leading tech innovation across the continent and beyond.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/afrocode-academy" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/afrocode-academy" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/afrocodeacademy" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#courses">Courses</a></p>
+                    <p><a href="#mentors">Mentors</a></p>
+                    <p><a href="#projects">Projects</a></p>
+                    <p><a href="#fellows">Alumni</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <p><a href="#courses">Full-Stack Development</a></p>
+                    <p><a href="#courses">Mobile Development</a></p>
+                    <p><a href="#courses">Data Science & AI</a></p>
+                    <p><a href="#courses">Cybersecurity</a></p>
+                    <p><a href="#courses">Blockchain</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="#contact">Contact Us</a></p>
+                    <p><a href="#news">News & Blog</a></p>
+                    <p><a href="#collaborators">Partners</a></p>
+                    <p><a href="#">Career Services</a></p>
+                    <p><a href="#">Help Center</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AfroCode Academy. All rights reserved. Building the future of African tech education.</p>
+            </div>
+        </div>
+    </footer>
 
-    document.querySelector(".contact-form")?.addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Thank you for contacting Afrocode Academy!");
-      this.reset();
-    });
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
 
-    // Dark mode toggle
-    const darkBtn = document.querySelector('.dark-toggle');
-    darkBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      darkBtn.textContent = document.body.classList.contains('dark') ? '☀️ Light' : '🌙 Dark';
-    });
-  </script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(102, 126, 234, 0.3)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with loading class
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to your backend
+            // For now, we'll show a success message
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+            
+            // In a real application, you would do something like:
+            // fetch('/api/contact', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // }).then(response => response.json())
+            //   .then(data => {
+            //       alert('Message sent successfully!');
+            //       contactForm.reset();
+            //   });
+        });
+
+        // Add active state to navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Add particles effect to hero section (optional enhancement)
+        function createParticle() {
+            const hero = document.querySelector('.hero');
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '2px';
+            particle.style.height = '2px';
+            particle.style.background = 'rgba(102, 126, 234, 0.5)';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.pointerEvents = 'none';
+            particle.style.animation = `float ${5 + Math.random() * 10}s ease-in-out infinite`;
+            
+            hero.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Add dynamic typing effect to hero title
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.textContent;
+        
+        function typeWriter() {
+            heroTitle.textContent = '';
+            let i = 0;
+            const speed = 50;
+            
+            function type() {
+                if (i < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            setTimeout(type, 1000);
+        }
+
+        // Stats counter animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                }
+            }, 20);
+        }
+
+        // Observe stat cards for counter animation
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('h4');
+                    const text = statNumber.textContent;
+                    const number = parseInt(text.replace(/\D/g, ''));
+                    animateCounter(statNumber, number);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statObserver.observe(card);
+        });
+
+        // Add scroll progress indicator
+        const progressBar = document.createElement('div');
+        progressBar.style.position = 'fixed';
+        progressBar.style.top = '0';
+        progressBar.style.left = '0';
+        progressBar.style.height = '3px';
+        progressBar.style.background = 'linear-gradient(90deg, var(--primary-color), var(--accent-color))';
+        progressBar.style.zIndex = '9999';
+        progressBar.style.transition = 'width 0.1s';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+
+        // Add smooth reveal animation for sections
+        const revealSections = document.querySelectorAll('.section');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealSections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObserver.observe(section);
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+
+        // Add copy email functionality
+        document.querySelectorAll('.contact-item').forEach(item => {
+            const text = item.textContent;
+            if (text.includes('@')) {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => {
+                    const email = text.match(/[\w.-]+@[\w.-]+\.\w+/);
+                    if (email) {
+                        navigator.clipboard.writeText(email[0]).then(() => {
+                            const originalContent = item.innerHTML;
+                            item.innerHTML = '<i class="fas fa-check"></i> <div>Email copied to clipboard!</div>';
+                            setTimeout(() => {
+                                item.innerHTML = originalContent;
+                            }, 2000);
+                        });
+                    }
+                });
+            }
+        });
+
+        // Add lazy loading for images (if you add actual images later)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Console message for developers
+        console.log('%c👋 Hello Developer!', 'font-size: 20px; font-weight: bold; color: #667eea;');
+        console.log('%cInterested in joining AfroCode Academy? Visit us at https://afrocodeacademy.com', 'font-size: 14px; color: #764ba2;');
+        console.log('%c💻 Built with passion by AfroCode Academy students', 'font-size: 12px; color: #718096;');
+    </script>
 </body>
 </html>
